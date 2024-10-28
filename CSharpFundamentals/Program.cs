@@ -2,88 +2,27 @@
 
 namespace CSharpFundamentals
 {
-    public enum ShippingMethod
-    {
-        RegularAirMail = 1, 
-        RegisterAirMail = 2,
-        Express = 3
-    }
     internal class Program
     {
         static void Main(string[] args)
         {
-            /* var john = new Person();
-             john.FirstName = "John";
-             john.LastName = "Smith";
-             john.Introduce();
+            //difference between copying valuetypes and reference types
+            var a = 10;
+            var b = a;
+            b++;
+            // when you copy a value type into a variable, a copy of that value is copied
+            // and stored in that variable in a new memory location
+            // hence a completely independent variables (different from each other)
+            Console.WriteLine(string.Format("a: {0}, b: {1}", a, b));
 
-             Calculator calculator = new Calculator();
-             var result = calculator.Add(1, 2);
-             Console.WriteLine(result);
-
-             Console.WriteLine("================ARRAYS==============");
-             var numbers = new int[3];
-             numbers[0] = 1;
-             Console.WriteLine(numbers[0]);
-             Console.WriteLine(numbers[1]);
-             Console.WriteLine(numbers[2]);
-
-             var flags = new bool[3];
-             flags[0] = true;
-
-             Console.WriteLine(flags[0]);
-             Console.WriteLine(flags[1]);
-             Console.WriteLine(flags[2]); // uinitialized parts of arrays are set to 0 or false
-
-             var names = new string[3] { "Jack", "John", "Mary" };
-             Console.WriteLine(names[0]);
-             Console.WriteLine(names[1]);
-             Console.WriteLine(names[2]);
-
-             Console.WriteLine("stringBackslash\\");
-
-             // Verbatim strings
-             string path = "c:\\projects\\project1\\folder";
-             // using verbatim
-             string verbatimPath = @"c:\projects\project1\folder";
-             Console.WriteLine(string.Format("Path1 -> {0} \nPath2 -> {1}", path, verbatimPath));
-
-            var firstName = "Michael";
-            var lastName = "Bamidele";
-
-            var fullName = firstName + " " + lastName;
-
-            var myFullName = string.Format("My name is  {0} {1}", firstName, lastName);
-
-            Console.WriteLine("String.join method");
-            var names = new string[] { "John", "Jack", "Mary" };
-            var formattedNames = string.Join(", ", names);
-
-            Console.WriteLine(formattedNames);
-
-            var text = @"Hi  John
-Look into the following paths
-c:\folder1\folder2
-c:\folder3\folder3";
-            Console.WriteLine(text);
-            */
-
-            // working with enums
-            var method = ShippingMethod.Express;
-            Console.WriteLine(method);
-            Console.WriteLine((int)method); // cast to method value
-
-            //convert or cast number to method
-            var methodId = 3;
-            Console.WriteLine((ShippingMethod)methodId); // casting
-
-            Console.WriteLine(method.ToString()); // using ToString to do that
-            // can work without without ToString (if using Console.WriteLine)
-
-            // what if we have a string and want to convert or parse to an enum?
-            var methodName = "Express";
-            var shippingMethod = (ShippingMethod)Enum.Parse(typeof(ShippingMethod), methodName);
-            Console.WriteLine(shippingMethod);
+            // working with reference types
+            var array1 = new int[3] {1, 2, 3};
+            var array2 = array1;
+            array2[0] = 0;
+            Console.WriteLine(string.Format("{array1 element 1: {1}, array2 element 1: {1}", array1[0], array2[0]);
+            // what has happened behind the hood, array is created in the heap and 
+            // when array1 is copied to array2, array2 -> simply points to the same memory location of array1
+            // therefore any changes made in array2 will reflect in array1 and vice versa
         }
     }
 }
