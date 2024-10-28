@@ -42,7 +42,24 @@ namespace CSharpFundamentals
              string verbatimPath = @"c:\projects\project1\folder";
              Console.WriteLine(string.Format("Path1 -> {0} \nPath2 -> {1}", path, verbatimPath));*/
 
-            var firstName = "Mosh";
+            var firstName = "Michael";
+            var lastName = "Bamidele";
+
+            var fullName = firstName + " " + lastName;
+
+            var myFullName = string.Format("My name is  {0} {1}", firstName, lastName);
+
+            Console.WriteLine("String.join method");
+            var names = new string[] { "John", "Jack", "Mary" };
+            var formattedNames = string.Join(", ", names);
+
+            Console.WriteLine(formattedNames);
+
+            var text = @"Hi  John
+Look into the following paths
+c:\folder1\folder2
+c:\folder3\folder3";
+            Console.WriteLine(text);
         }
     }
 }
