@@ -73,12 +73,12 @@ c:\folder3\folder3";
             Console.WriteLine(method);
             Console.WriteLine((int)method); // cast to method value
 
-            //conert number to method
+            //convert or cast number to method
             var methodId = 3;
             Console.WriteLine((ShippingMethod)methodId); // casting
 
             Console.WriteLine(method.ToString()); // using ToString to do that
-            // can work without without ToString
+            // can work without without ToString (if using Console.WriteLine)
 
             // what if we have a string and want to convert or parse to an enum?
             var methodName = "Express";
