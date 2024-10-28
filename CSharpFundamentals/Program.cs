@@ -2,6 +2,12 @@
 
 namespace CSharpFundamentals
 {
+    public enum ShippingMethod
+    {
+        RegularAirMail = 1, 
+        RegisterAirMail = 2,
+        Express = 3
+    }
     internal class Program
     {
         static void Main(string[] args)
@@ -40,7 +46,7 @@ namespace CSharpFundamentals
              string path = "c:\\projects\\project1\\folder";
              // using verbatim
              string verbatimPath = @"c:\projects\project1\folder";
-             Console.WriteLine(string.Format("Path1 -> {0} \nPath2 -> {1}", path, verbatimPath));*/
+             Console.WriteLine(string.Format("Path1 -> {0} \nPath2 -> {1}", path, verbatimPath));
 
             var firstName = "Michael";
             var lastName = "Bamidele";
@@ -60,6 +66,24 @@ Look into the following paths
 c:\folder1\folder2
 c:\folder3\folder3";
             Console.WriteLine(text);
+            */
+
+            // working with enums
+            var method = ShippingMethod.Express;
+            Console.WriteLine(method);
+            Console.WriteLine((int)method); // cast to method value
+
+            //conert number to method
+            var methodId = 3;
+            Console.WriteLine((ShippingMethod)methodId); // casting
+
+            Console.WriteLine(method.ToString()); // using ToString to do that
+            // can work without without ToString
+
+            // what if we have a string and want to convert or parse to an enum?
+            var methodName = "Express";
+            var shippingMethod = (ShippingMethod)Enum.Parse(typeof(ShippingMethod), methodName);
+            Console.WriteLine(shippingMethod);
         }
     }
 }
