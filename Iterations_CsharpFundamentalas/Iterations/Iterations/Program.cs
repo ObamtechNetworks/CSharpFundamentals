@@ -24,7 +24,7 @@
 
             // UNDERSTANDING FOREACH LOOP (comparing with for loop)
 
-            var name = "John Smith";
+            //var name = "John Smith";
             // using for loop
             /*for (int i = 0; i < name.Length; i++)
             {
@@ -33,9 +33,17 @@
 
             //using FOREACH LOOP
 
-            foreach (var character in name)
+           /* foreach (var character in name)
             {
                 Console.WriteLine(character);
+            }*/
+
+            //foreach ON ARRAYS OF NUMBERS
+            var numbers = new int[] { 1, 2, 3, 4 };
+
+            foreach (var number in numbers)
+            {
+                Console.WriteLine(number);
             }
         }
     }
