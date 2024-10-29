@@ -6,23 +6,50 @@ namespace CSharpFundamentals
     {
         static void Main(string[] args)
         {
-            //difference between copying valuetypes and reference types
-            var a = 10;
-            var b = a;
-            b++;
-            // when you copy a value type into a variable, a copy of that value is copied
-            // and stored in that variable in a new memory location
-            // hence a completely independent variables (different from each other)
-            Console.WriteLine(string.Format("a: {0}, b: {1}", a, b));
+            /*int hour = 30;
 
-            // working with reference types
-            var array1 = new int[3] {1, 2, 3};
-            var array2 = array1;
-            array2[0] = 0;
-            Console.WriteLine(string.Format("{array1 element 1: {1}, array2 element 1: {1}", array1[0], array2[0]);
-            // what has happened behind the hood, array is created in the heap and 
-            // when array1 is copied to array2, array2 -> simply points to the same memory location of array1
-            // therefore any changes made in array2 will reflect in array1 and vice versa
+            if (hour > 0 && hour < 12)
+            {
+                Console.WriteLine("It's morning.");
+            }
+            else if (hour > 12 && hour < 18)
+            {
+                Console.WriteLine("It's afternoon");
+            }
+            else Console.WriteLine("It's evening.");*/
+
+            /* bool isGoldCustomer = true;
+
+             float price = (isGoldCustomer) ? 19.95f : 29.95f;
+             Console.WriteLine(price);*/
+
+            // SWITCH CASE
+            var season = Season.Autumn;
+
+            /*switch (season)
+            {
+                case Season.Autumn:
+                    Console.WriteLine("We've got promotion");
+                    break;
+                case Season.Summer:
+                    Console.WriteLine("It's perfect to go to beach");
+                    break;
+                default:
+                    Console.WriteLine("I don't umderstand that season");
+                    break;
+            }*/
+
+            //HANDLING TWO SWITCH CASES ---> Case A  OR Case B
+            switch (season)
+            {
+                case Season.Autumn:
+                case Season.Summer:
+                    Console.WriteLine("We've got promotions");
+                    break;
+                default:
+                    Console.WriteLine("I don't understand that seasion");
+                    break;
+            }
         }
     }
 }
