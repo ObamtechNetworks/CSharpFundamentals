@@ -43,6 +43,14 @@
                 Console.WriteLine(n);
             }
 
+            // Reverse()
+            Array.Reverse(numbers);
+            Console.WriteLine("Effect of Reverse()");
+            foreach(var n in numbers)
+            {
+                Console.WriteLine(n);
+            }
+
              
         }
     }
