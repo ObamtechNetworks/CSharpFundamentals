@@ -68,11 +68,12 @@
             }*/
 
             /**
+             * Exercise TWO:
              * 2- Write a program and ask the user to enter their name.
              * Use an array to reverse the name and then store the result in a new string.
              * Display the reversed name on the console.
              */
-            Console.WriteLine("Enter your name");
+            /*Console.WriteLine("Enter your name");
             // get user input
             var userInput = Console.ReadLine();
             if (!(string.IsNullOrEmpty(userInput)))
@@ -84,9 +85,59 @@
 
                 var reversedName = new string(chars);
 
-                Console.WriteLine($"Reversed name {reversedName}");
+                Console.WriteLine($"Reversed name: {reversedName}");
+            }*/
+
+            /**
+             * EXERCISE 3:
+             * 3- Write a program and ask the user to enter 5 numbers.
+             * If a number has been previously entered,
+             * display an error message and ask the user to re-try.
+             * Once the user successfully enters 5 unique numbers,
+             * sort them and display the result on the console.
+             */
+
+            Console.WriteLine("Enter 5 unique numbers");
+            var inputList = new List<int>();
+
+            int i = 0;
+            while (i < 5)  // Loop should run exactly 5 times
+            {
+                Console.Write("Enter a number: ");
+                var input = Console.ReadLine();
+
+                // Check for null or empty input
+                if (string.IsNullOrEmpty(input))
+                {
+                    Console.WriteLine("Invalid or empty input, please try again.");
+                    continue;
+                }
+
+                try
+                {
+                    int convertedInput = Convert.ToInt32(input);
+
+                    // Check for duplicates
+                    if (inputList.Contains(convertedInput))
+                    {
+                        Console.WriteLine("Error! Value already exists, please enter a unique number.");
+                        continue;
+                    }
+
+                    // Add the number to the list
+                    inputList.Add(convertedInput);
+                    i++;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid input, please enter a valid number.");
+                }
             }
 
-}
-}
+            // Sort and display the result
+            inputList.Sort();
+            Console.WriteLine("Sorted unique numbers: " + string.Join(", ", inputList));
+
+        }
+    }
 }
