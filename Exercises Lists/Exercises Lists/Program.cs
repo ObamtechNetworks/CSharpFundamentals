@@ -97,7 +97,7 @@
              * sort them and display the result on the console.
              */
 
-            Console.WriteLine("Enter 5 unique numbers");
+            /*Console.WriteLine("Enter 5 unique numbers");
             var inputList = new List<int>();
 
             int i = 0;
@@ -136,8 +136,53 @@
 
             // Sort and display the result
             inputList.Sort();
-            Console.WriteLine("Sorted unique numbers: " + string.Join(", ", inputList));
+            Console.WriteLine("Sorted unique numbers: " + string.Join(", ", inputList));*/
+
+            // EXERCISE 4:
+            /**
+             * 4- Write a program and ask the user to continuously enter a number
+             * or type "Quit" to exit. The list of numbers may include duplicates.
+             * Display the unique numbers that the user has entered.
+             */
+
+            var inputList = new List<int>();
+            Console.WriteLine("Enter a number or type \"Quit\" to exit");
+            while(true)
+            {
+                var userInput = Console.ReadLine();
+                if (userInput == "quit" || userInput == "Quit")
+                {
+                    break;
+                }
+                Console.WriteLine("Enter another, type \"Quit\" to exit");
+                // check for null or empty characters
+                if (string.IsNullOrEmpty(userInput))
+                {
+                    Console.WriteLine("Invalid or empty input, try again");
+                    continue;
+                }
+
+                try
+                {
+                    int convertedInput = Convert.ToInt32(userInput);
+                    inputList.Add(convertedInput);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid input!, please try again");
+                }
+            }
+
+            if (inputList.Count > 0)
+            {
+                Console.WriteLine("Your Unique values " + string.Join(", ", inputList.Distinct()));
+                Console.WriteLine("Bye..!");
+            }
+            else
+            {
+                Console.WriteLine("No input ...! Bye!");
+            }
 
         }
-    }
+}
 }
