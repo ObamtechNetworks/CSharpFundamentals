@@ -24,7 +24,7 @@ namespace CSharpFundamentals
              Console.WriteLine(price);*/
 
             // SWITCH CASE
-            var season = Season.Autumn;
+            //var season = Season.Autumn;
 
             /*switch (season)
             {
@@ -40,16 +40,47 @@ namespace CSharpFundamentals
             }*/
 
             //HANDLING TWO SWITCH CASES ---> Case A  OR Case B
-            switch (season)
+            /* switch (season)
+             {
+                 case Season.Autumn:
+                 case Season.Summer:
+                     Console.WriteLine("We've got promotions");
+                     break;
+                 default:
+                     Console.WriteLine("I don't understand that seasion");
+                     break;
+             }*/
+
+            //RANDOM CLASS IN CSHARP
+            //var random = new Random();
+            //for (var i = 0; i < 10; i++)
+            //{
+            //    Console.WriteLine(random.Next(1, 10));
+            //}
+
+            // GENERATE RANDOM CHARACTERS using ascii codes
+            //var random = new Random();
+            //for (var i = 0; i < 10; i++)
+            //    Console.Write((char)random.Next(97, 122));
+            //Console.WriteLine();
+
+            // GENERATE CHARACTERS MORE EXPRSSIVE WAY
+            /*var random = new Random();
+            for (var i = 0; i < 10; i++)
+                Console.Write((char)('a' + random.Next(0, 26)));
+            Console.WriteLine();*/
+
+            const int passwordLength = 10;
+            var random = new Random();
+            var buffer = new char[passwordLength];
+            for (var i = 0; i < passwordLength; i++)
             {
-                case Season.Autumn:
-                case Season.Summer:
-                    Console.WriteLine("We've got promotions");
-                    break;
-                default:
-                    Console.WriteLine("I don't understand that seasion");
-                    break;
+                buffer[i] = (char)('a' + random.Next(0, 26));
             }
+
+            var password = new string(buffer);
+            Console.WriteLine(password);
+
         }
     }
 }
