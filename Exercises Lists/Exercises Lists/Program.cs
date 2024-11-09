@@ -145,7 +145,7 @@
              * Display the unique numbers that the user has entered.
              */
 
-            var inputList = new List<int>();
+            /*var inputList = new List<int>();
             Console.WriteLine("Enter a number or type \"Quit\" to exit");
             while(true)
             {
@@ -181,8 +181,105 @@
             else
             {
                 Console.WriteLine("No input ...! Bye!");
-            }
+            }*/
 
+            // Exercise 5
+            /**
+             * 5- Write a program and ask the user to supply a list of comma separated numbers (e.g 5, 1, 9, 2, 10).
+             * If the list is empty or includes less than 5 numbers,
+             * display "Invalid List" and ask the user to re-try;
+             * otherwise, display the 3 smallest numbers in the list.
+             */
+
+            /*// MY METHOD:
+            Console.WriteLine("Enter a list of comma separated numbers");
+            var input = Console.ReadLine();
+            var inputList = new List<int>();
+
+            while (true)
+            {
+                // split input by commmas
+                if (!string.IsNullOrEmpty(input))
+                {
+                    var splitted = input.Split(',');
+                    
+                    if (splitted.Length < 5)
+                    {
+                        Console.WriteLine("Invalid List, try again");
+                        continue;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            foreach(var n in splitted)
+                            {
+                                inputList.Add(Convert.ToInt32(n));
+                            }
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Invalid element among list, try again");
+                            continue;
+                        }
+                        if (inputList.Count > 0)
+                        {
+                            inputList.Sort();
+                            // display 3 smallest
+                            var min1 = inputList.Min();
+                            inputList.Remove(min1);
+                            var min2 = inputList.Min();
+                            inputList.Remove(min2);
+                            var min3 = inputList.Min();
+                            inputList.Remove(min3);
+
+                            Console.WriteLine("3 smallest numbers in list: {0}, {1}, {2}", min1, min2, min3);
+                            break;
+                        }
+                    }
+                }
+            }*/
+
+            // REFACTORED:
+            while (true)
+            {
+                Console.WriteLine("Enter a list of comma-separated numbers (e.g., 5, 1, 9, 2, 10):");
+                var input = Console.ReadLine();
+
+                if (string.IsNullOrEmpty(input))
+                {
+                    Console.WriteLine("Invalid List, try again.");
+                    continue;
+                }
+
+                // Split input and convert to list of integers
+                var splitInput = input.Split(',');
+                if (splitInput.Length < 5)
+                {
+                    Console.WriteLine("Invalid List, please enter at least 5 numbers.");
+                    continue;
+                }
+
+                // Try to parse each number and add to a list
+                var inputList = new List<int>();
+                try
+                {
+                    inputList = splitInput.Select(n => Convert.ToInt32(n.Trim())).ToList();
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid element in the list, please enter only numbers.");
+                    continue;
+                }
+
+                // Sort the list and get the 3 smallest numbers
+                inputList.Sort();
+                var smallestNumbers = inputList.Take(3).ToList();
+
+                // Display the 3 smallest numbers
+                Console.WriteLine("The 3 smallest numbers are: {0}, {1}, {2}", smallestNumbers[0], smallestNumbers[1], smallestNumbers[2]);
+                break;
+            }
         }
-}
+    }
 }
