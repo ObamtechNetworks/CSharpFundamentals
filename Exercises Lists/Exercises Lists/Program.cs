@@ -5,6 +5,7 @@
         static void Main(string[] args)
         {
             /**
+             * Exercise ONE:
              * 
              * 1- When you post a message on Facebook, depending on the number of people who like your post,
              * Facebook displays different information.
@@ -26,6 +27,7 @@
                     if (!string.IsNullOrEmpty(inputs))
                     {
                         // Split on both commas and spaces, and remove any empty entries
+                        // to handle inputs like: [ Segun, Bola, Amaka or Segun,Bola,Amaka or Segun Bola Amaka ]
                         friendsList.AddRange(inputs.Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries));
                         /*friendsList.Add(inputs);*/
                     }
