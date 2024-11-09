@@ -176,7 +176,7 @@ namespace Exercises
             }
             else Console.WriteLine("No valid input found");*/
 
-            // version 2:
+            /*// version 2:
             // Ask the user to enter numbers separated by commas
             Console.WriteLine("Enter numbers separated by commas:");
             var inputs = Console.ReadLine();
@@ -207,7 +207,63 @@ namespace Exercises
             else
             {
                 Console.WriteLine("No valid numbers found.");
-            }
+            }*/
+
+            // Exercise 6:
+            /**
+             * Write a program which takes two numbers
+             * from the console and displays the maximum of the two.
+             */
+            /* Console.WriteLine("Enter first number");
+             try
+             {
+                 int firstNumber = Convert.ToInt32(Console.ReadLine());
+
+                 Console.WriteLine("Enter second number");
+                 int secondNumber = Convert.ToInt32(Console.ReadLine());
+                 if (firstNumber > secondNumber)
+                 {
+                     Console.WriteLine($"Max number is: {firstNumber}");
+                 }
+                 else
+                 {
+                     Console.WriteLine($"Max number is: {secondNumber}");
+                 }
+             }
+             catch (FormatException)
+             {
+                 Console.WriteLine("Invalid input... Bye...");
+             }*/
+
+            // Exercise 7:
+            /**
+             * Write a program and ask the user to enter the width and height of an image.
+             * Then tell if the image is landscape or portrait.
+             */
+            Console.WriteLine("Enter width of image");
+             try
+             {
+                 int imgWidth = Convert.ToInt32(Console.ReadLine());
+
+                 Console.WriteLine("Enter height of image");
+                 int imgHeight = Convert.ToInt32(Console.ReadLine());
+                 if (imgHeight > imgWidth)
+                 {
+                     Console.WriteLine("Image is portrait");
+                 }
+                 else if (imgWidth > imgHeight)
+                 {
+                     Console.WriteLine("Image is landscape");
+                 }
+                 else
+                {
+                    Console.WriteLine("Image is a square, all sides are equal");
+                }
+             }
+             catch (FormatException)
+             {
+                 Console.WriteLine("Invalid input... Bye...");
+             }
 
 
 
