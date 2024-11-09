@@ -17,7 +17,7 @@
             Write a program and continuously ask the user to enter different names, until the user presses Enter (without supplying a name).
             Depending on the number of names provided, display a message based on the above pattern.
              */
-            var friendsList = new List<string>();
+            /*var friendsList = new List<string>();
             Console.WriteLine("Enter different names of your friends");
             while (true)
             {
@@ -29,7 +29,7 @@
                         // Split on both commas and spaces, and remove any empty entries
                         // to handle inputs like: [ Segun, Bola, Amaka or Segun,Bola,Amaka or Segun Bola Amaka ]
                         friendsList.AddRange(inputs.Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries));
-                        /*friendsList.Add(inputs);*/
+                        *//*friendsList.Add(inputs);*//*
                     }
                     else // if empty value is supplied
                     {
@@ -45,7 +45,7 @@
                                 Console.WriteLine($"[{friendsList[0]}] and [{friendsList[1]}] liked your post");
                                 break;
                             }
-                            
+
                             if (friendsList.Count > 2)
                             {
                                 Console.WriteLine($"[{friendsList[0]}], [{friendsList[1]}] and [{friendsList.Count - 2} other] liked your post");
@@ -65,8 +65,28 @@
                     Console.WriteLine($"An error occurred: {ext}");
                     break;
                 }
+            }*/
+
+            /**
+             * 2- Write a program and ask the user to enter their name.
+             * Use an array to reverse the name and then store the result in a new string.
+             * Display the reversed name on the console.
+             */
+            Console.WriteLine("Enter your name");
+            // get user input
+            var userInput = Console.ReadLine();
+            if (!(string.IsNullOrEmpty(userInput)))
+            {
+                char[] chars = userInput.ToCharArray();
+
+                // reverse characters
+                Array.Reverse(chars);
+
+                var reversedName = new string(chars);
+
+                Console.WriteLine($"Reversed name {reversedName}");
             }
 
-        }
-    }
+}
+}
 }
