@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            var fullName = "Michael Bamidele ";
+            /*var fullName = "Michael Bamidele ";
             Console.WriteLine("Trim: '{0}'", fullName.Trim());
             Console.WriteLine("ToUpper: '{0}'", fullName.Trim().ToUpper());
 
@@ -32,9 +32,12 @@
             Console.WriteLine(age);
 
             float price = 29.95f;
-            Console.WriteLine(price.ToString("C0")); // convert to currency
+            Console.WriteLine(price.ToString("C0")); // convert to currency (0 -> round off to whole))*/
 
+            var sentence = "This is going to be a really really really really really long text";
 
+            var summary = StringUtility.SummarizeText(sentence, 25);
+            Console.WriteLine(summary);
 
         }
     }
