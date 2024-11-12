@@ -9,6 +9,7 @@ namespace Exercuses_Working_with_Text
     {
         static void Main(string[] args)
         {
+            // ReSharper disable once InvalidXmlDocComment
             /**
              * 1- Write a program and ask the user to enter a few numbers separated by a hyphen.
              * Work out if the numbers are consecutive.
@@ -95,14 +96,43 @@ namespace Exercuses_Working_with_Text
              * If the user doesn't provide any values, consider it as invalid time.
              */
 
-            Console.WriteLine(@"Enter a valid time value (in 24-hour time format: 19:00, 12:00
+            /*Console.WriteLine(@"Enter a valid time value (in 24-hour time format: 19:00, 12:00
 Valid time format should be between: 00:00 and 23:59");
 
             // get user input
             var userInput = Console.ReadLine();
 
             // call void function to check time value inputted by user
-            isValidTime(userInput);
+            isValidTime(userInput);*/
+
+            // EXERCISE 4:
+            /**
+             * 4- Write a program and ask the user to enter a few words separated by a space.
+             * Use the words to create a variable name with PascalCase. For example,
+             * if the user types: "number of students", display "NumberOfStudents".
+             * Make sure that the program is not dependent on the input.
+             * So, if the user types "NUMBER OF STUDENTS", the program should still display "NumberOfStudents".
+             */
+
+            Console.WriteLine("Enter a few words separated by space");
+            var input = Console.ReadLine();
+
+            // split input into string
+            var SplitInputs = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            var wordList = new List<string>();
+
+            foreach (var word in SplitInputs)
+            {
+                if (!string.IsNullOrWhiteSpace(word))
+                {
+                    // Capitalize the first character and concatenate with the rest of the word using range indexer
+                    var capitalizedWord = char.ToUpper(word[0]) + word.Substring(1).ToLower();
+                    wordList.Add(capitalizedWord);
+                }
+            }
+
+            var result = string.Join("", wordList);
+            Console.WriteLine("PascalCase word: " + result);
         }
 
         public static bool isConsecutive(List<int> numberLists)
