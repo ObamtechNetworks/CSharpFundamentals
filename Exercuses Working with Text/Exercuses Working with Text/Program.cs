@@ -114,7 +114,7 @@ Valid time format should be between: 00:00 and 23:59");
              * So, if the user types "NUMBER OF STUDENTS", the program should still display "NumberOfStudents".
              */
 
-            Console.WriteLine("Enter a few words separated by space");
+            /*Console.WriteLine("Enter a few words separated by space");
             var input = Console.ReadLine();
 
             // split input into string
@@ -132,7 +132,38 @@ Valid time format should be between: 00:00 and 23:59");
             }
 
             var result = string.Join("", wordList);
-            Console.WriteLine("PascalCase word: " + result);
+            Console.WriteLine("PascalCase word: " + result);*/
+
+
+            // EXERCISE 5:
+            /**
+             * 5- Write a program and ask the user to enter an English word.
+             * Count the number of vowels (a, e, o, u, i) in the word.
+             * So, if the user enters "inadequate", the program should display 6 on the console.
+             */
+
+            Console.WriteLine("Enter an English Word");
+            var userInput = Console.ReadLine();
+
+            // an array of vowels characters
+            var vowelLists = new[] { 'a', 'e', 'i', 'o', 'u' };
+
+            // trim user input off all whitespaces
+            userInput.Trim();
+
+            var count = 0;
+
+            foreach (var character in userInput)
+            {
+                if (vowelLists.Contains(character))
+                    count++;
+            }
+            // LINQ EXPRESSION: => var count = userInput.Count(character => vowelLists.Contains(character));
+
+            Console.WriteLine("Total vowels found: " + count);
+
+
+            
         }
 
         public static bool isConsecutive(List<int> numberLists)
