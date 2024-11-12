@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.JavaScript;
 using Microsoft.VisualBasic.CompilerServices;
 
 namespace Exercuses_Working_with_Text
@@ -56,7 +57,7 @@ namespace Exercuses_Working_with_Text
              * If so, display "Duplicate" on the console.
              */
 
-            Console.WriteLine("Enter a few numbers separated by a hyphen. E.g: 5-6-7-8-9");
+            /*Console.WriteLine("Enter a few numbers separated by a hyphen. E.g: 5-6-7-8-9");
 
             var input = Console.ReadLine();
 
@@ -84,9 +85,27 @@ namespace Exercuses_Working_with_Text
             var result = isDuplicate(singleString, charList);
 
             Console.WriteLine(result ? "Duplicates" : "No duplicates found");
+            */
+
+            // EXERCISE 3:
+            /**
+             * 3- Write a program and ask the user to enter a time value
+             * in the 24-hour time format (e.g. 19:00). A valid time should be between 00:00 and 23:59.
+             * If the time is valid, display "Ok"; otherwise, display "Invalid Time".
+             * If the user doesn't provide any values, consider it as invalid time.
+             */
+
+            Console.WriteLine(@"Enter a valid time value (in 24-hour time format: 19:00, 12:00
+Valid time format should be between: 00:00 and 23:59");
+
+            // get user input
+            var userInput = Console.ReadLine();
+
+            // call void function to check time value inputted by user
+            isValidTime(userInput);
         }
 
-        /*public static bool isConsecutive(List<int> numberLists)
+        public static bool isConsecutive(List<int> numberLists)
         {
             // handle edgecase
 
@@ -103,7 +122,7 @@ namespace Exercuses_Working_with_Text
                     return false;
             }
             return true;
-        }*/
+        }
 
         public static bool isDuplicate(string sourceString, List<char> charList)
         {
@@ -116,6 +135,21 @@ namespace Exercuses_Working_with_Text
             }
 
             return false;
+        }
+
+        public static void isValidTime(string timeValue)
+        {
+            // try to convert timeValue to a valid date string else display invalid time
+            try
+            {
+                var dateTime = DateTime.Parse(timeValue).TimeOfDay;
+                Console.WriteLine("Time: " + dateTime);
+                Console.WriteLine("OK");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Invalid Time");
+            }
         }
 
     }
