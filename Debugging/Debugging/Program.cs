@@ -8,8 +8,8 @@
         static void Main(string[] args)
         {
            // A sample code with bug 
-           var numbers = new List<int> { 1, 2, 3, 4, 5, 6 };
-           var smallest = GetSmallests(numbers, 3);
+           var numbers = new List<int>();
+           var smallest = GetSmallests(null, 3);
 
            foreach (var number in smallest)
            {
@@ -20,13 +20,22 @@
 
         public static List<int> GetSmallests(List<int> list, int count)
         {
+            // add edge case to prevent overflow exception
+            // check if count is not greater than number of elements in list or list is null
+            if (list == null)
+                throw new ArgumentException("list")
+            if (count > list.Count || count <= 0)
+                throw new ArgumentOutOfRangeException("count", "Count should be between 1 and the number of elements in the list");
+
+            //create a copy of list
+            var buffer = new List<int>(list);
             var smallest = new List<int>();
 
             while (smallest.Count < count)
             {
-                var min = GetSmallest(list);
+                var min = GetSmallest(buffer);
                 smallest.Add(min);
-                list.Remove(min);
+                buffer.Remove(min); // side effects, list is mutated
             }
 
             return smallest;
@@ -35,7 +44,7 @@
         public static int GetSmallest(List<int> list)
         {
             // Assume the first number is the smallest
-            var min = list[0];
+            var min = list[0]; // list could be empty.
 
             for (var i = 1; i < list.Count; i++)
             {
