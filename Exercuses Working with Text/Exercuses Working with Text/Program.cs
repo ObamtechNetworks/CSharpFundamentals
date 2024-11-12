@@ -76,30 +76,14 @@ namespace Exercuses_Working_with_Text
             }
 
             // try split the input to string by hyphen '-'
-            var splittedInputs = input.Split('-');
-            var singleString = string.Join("", splittedInputs);
+            var splitInputs = input.Split('-');
+            var singleString = string.Join("", splitInputs);
             var charList = new List<char>();
 
             // check for duplicates
-            try
-            {
-                foreach (var character in singleString)
-                {
-                    if (!charList.Contains(character))
-                        charList.Add(character);
-                    else
-                    {
-                        Console.WriteLine("Duplicate");
-                        break;
-                    }
-                }
+            var result = isDuplicate(singleString, charList);
 
-                Console.WriteLine("No duplicate found");
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Invalid format found.. Try again... Bye..");
-            }
+            Console.WriteLine(result ? "Duplicates" : "No duplicates found");
         }
 
         /*public static bool isConsecutive(List<int> numberLists)
@@ -120,6 +104,19 @@ namespace Exercuses_Working_with_Text
             }
             return true;
         }*/
+
+        public static bool isDuplicate(string sourceString, List<char> charList)
+        {
+            foreach (var character in sourceString)
+            {
+                if (!charList.Contains(character))
+                    charList.Add(character);
+                else
+                    return true;
+            }
+
+            return false;
+        }
 
     }
 }
