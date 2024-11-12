@@ -1,4 +1,6 @@
 ﻿using System.Globalization;
+using System.Runtime.InteropServices;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace Exercuses_Working_with_Text
 {
@@ -13,7 +15,7 @@ namespace Exercuses_Working_with_Text
              * display a message: "Consecutive"; otherwise, display "Not Consecutive".
              */
 
-            Console.WriteLine("Enter a few numbers separated by a hyphen. E.g: 5-6-7-8-9");
+            /*Console.WriteLine("Enter a few numbers separated by a hyphen. E.g: 5-6-7-8-9");
 
             var input = Console.ReadLine();
 
@@ -44,10 +46,63 @@ namespace Exercuses_Working_with_Text
             catch (FormatException)
             {
                 Console.WriteLine("Invalid format found.. Try again... Bye..");
+            }*/
+
+            // EXERCISE 2:
+            /**
+             * 2- Write a program and ask the user to enter a few numbers separated by a hyphen.
+             * If the user simply presses Enter, without supplying an input,
+             * exit immediately; otherwise, check to see if there are duplicates.
+             * If so, display "Duplicate" on the console.
+             */
+
+            Console.WriteLine("Enter a few numbers separated by a hyphen. E.g: 5-6-7-8-9");
+
+            var input = Console.ReadLine();
+
+            // minor validations
+            if (!input.Contains('-'))
+            {
+                Console.WriteLine("Enter a few numbers separated by a hyphen. E.g: 5-6-7-8-9");
+                Console.WriteLine("Please try again, bye...");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input))
+            {
+                Console.WriteLine("Enter a few numbers separated by a hyphen. E.g: 5-6-7-8-9");
+                Console.WriteLine("Please try again, bye...");
+                return;
+            }
+
+            // try split the input to string by hyphen '-'
+            var splittedInputs = input.Split('-');
+            var singleString = string.Join("", splittedInputs);
+            var charList = new List<char>();
+
+            // check for duplicates
+            try
+            {
+                foreach (var character in singleString)
+                {
+                    if (!charList.Contains(character))
+                        charList.Add(character);
+                    else
+                    {
+                        Console.WriteLine("Duplicate");
+                        break;
+                    }
+                }
+
+                Console.WriteLine("No duplicate found");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid format found.. Try again... Bye..");
             }
         }
 
-        public static bool isConsecutive(List<int> numberLists)
+        /*public static bool isConsecutive(List<int> numberLists)
         {
             // handle edgecase
 
@@ -64,6 +119,7 @@ namespace Exercuses_Working_with_Text
                     return false;
             }
             return true;
-        }
+        }*/
+
     }
 }
